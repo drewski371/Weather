@@ -1,33 +1,42 @@
-.App {
+.WeekForecast {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.Day {
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Paper {
+  padding: 10px;
+  height: 225px;
+  width: 155px;
 }
 
-.App-link {
-  color: #61dafb;
+.Paper:hover {
+  background-color: rgb(250, 250, 250);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.WeatherIcon {
+  padding-top: 20px;
+}
+
+.Row {
+  padding: 5px 0px;
+}
+
+.Hours {
+  list-style: none;
+}
+
+.Header {
+  margin-bottom: 10px;
+}
+
+#cityState {
+  text-align: right;
+  padding: 20px 20px 0px 0px;
+}
+
+.Button {
+  line-height: 60px;
 }
