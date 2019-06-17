@@ -12,6 +12,6 @@ const WeekForecast = ({ forecasts }) => (
             ))}
         </Grid>
     </div>
-)
+);
 
 export default WeekForecast;

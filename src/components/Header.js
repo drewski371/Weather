@@ -35,6 +35,6 @@ const Header = ({ onSearchClick, city, state }) => {
             </AppBar>
         </div>
     );
-}
+};
 
 export default Header;

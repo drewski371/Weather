@@ -15,7 +15,6 @@ const App = () => {
 
     getWeather(zip)
       .then(data => {
-        console.log(data);
         setForecasts(data.data);
         setCity(data.city_name);
         setState(data.state_code);
@@ -23,18 +22,16 @@ const App = () => {
       });
   }
 
-  const renderContent = () => (
-    isLoading ?
-      <p>Loading...</p> :
-      <WeekForecast forecasts={forecasts} />
-  );
+  const content = isLoading ?
+    <p>Loading...</p> :
+    <WeekForecast forecasts={forecasts} />;
 
   return (
     <div>
       <Header city={city} state={state} onSearchClick={handleSearch} />
-      {renderContent()}
+      {content}
     </div>
   );
-}
+};
 
 export default App;
