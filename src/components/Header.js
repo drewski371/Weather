@@ -3,23 +3,18 @@ import InputBase from '@material-ui/core/InputBase';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import SearchIcon from '@material-ui/icons/Search';
+import { search } from '../actions';
+import { connect } from 'react-redux';
 
-const Header = ({ onSearchClick, city, state }) => {
+const Header = ({ search, city, state }) => {
     const [zipCode, setZipCode] = useState('');
-
-    const onSearch = () => {
-        if (!zipCode) {
-            return;
-        }
-        onSearchClick(zipCode);
-    };
 
     return (
         <div>
             <AppBar position="relative" color="default" className="Header">
                 <Toolbar>
                     <div>
-                        <SearchIcon onClick={onSearch} />
+                        <SearchIcon onClick={() => search(zipCode)} />
                     </div>
                     <div>
                         <InputBase
@@ -37,4 +32,8 @@ const Header = ({ onSearchClick, city, state }) => {
     );
 };
 
-export default Header;
+const mapStateToProps = state => {
+    return { city: state.city, state: state.state };
+};
+
+export default connect(mapStateToProps, { search })(Header);
