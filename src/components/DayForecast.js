@@ -4,7 +4,7 @@ import sunny from '../assets/day.svg';
 import Paper from '@material-ui/core/Paper';
 
 const DayForecast = ({ forecast }) => (
-    <Paper className="Paper" onClick={() => alert('hi')}>
+    <Paper className="Paper">
         <div className="Day Row">
             {new Date(forecast.valid_date).toDateString()}
         </div>

@@ -22,7 +22,6 @@ const WeekForecast = ({ forecasts }) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     return { forecasts: state.forecasts };
 };
 

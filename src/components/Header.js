@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import InputBase from '@material-ui/core/InputBase';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,19 +7,18 @@ import { search } from '../actions';
 import { connect } from 'react-redux';
 
 const Header = ({ search, city, state }) => {
-    const [zipCode, setZipCode] = useState('');
+    const zipInput = useRef('');
 
     return (
         <div>
             <AppBar position="relative" color="default" className="Header">
                 <Toolbar>
                     <div>
-                        <SearchIcon onClick={() => search(zipCode)} />
+                        <SearchIcon onClick={() => search(zipInput.current.value)} />
                     </div>
                     <div>
                         <InputBase
-                            value={zipCode}
-                            onChange={(e) => setZipCode(e.target.value)}
+                            inputRef={zipInput}
                             placeholder="Zip Code..."
                         />
                     </div>
