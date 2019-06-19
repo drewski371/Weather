@@ -24,8 +24,17 @@ const stateReducer = (state = '', action) => {
     return state;
 };
 
+const selectedForecastReducer = (selectedForecast = null, action) => {
+    if (action.type === 'SHOW_DETAILS') {
+        return action.payload;
+    }
+
+    return selectedForecast;
+};
+
 export default combineReducers({
     forecasts: forecastsReducer,
     city: cityReducer,
-    state: stateReducer
+    state: stateReducer,
+    selectedForecast: selectedForecastReducer
 });
