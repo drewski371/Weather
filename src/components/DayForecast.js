@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import rainy from '../assets/rainy.svg';
-import sunny from '../assets/day.svg';
 import Paper from '@material-ui/core/Paper';
-import { showDetails } from '../actions';
 import { makeStyles } from '@material-ui/styles';
+
+import sunny from '../assets/day.svg';
+import rainy from '../assets/rainy.svg';
 
 const useStyles = makeStyles({
     paper: {
@@ -48,4 +48,10 @@ const DayForecast = ({ forecast, showDetails }) => {
     );
 }
 
-export default connect(null, { showDetails })(DayForecast);
+const mapDispatchToProps = dispatch => {
+    return {
+        showDetails: date => dispatch({ type: 'SHOW_DETAILS_REQUEST', payload: { date } })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(DayForecast);

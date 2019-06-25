@@ -1,40 +1,40 @@
 import { combineReducers } from 'redux';
 
-const forecastsReducer = (forecasts = [], action) => {
-    if (action.type === 'SEARCH') {
+const forecasts = (forecasts = [], action) => {
+    if (action.type === 'SEARCH_SUCCEEDED') {
         return action.payload.data;
     }
 
     return forecasts;
 };
 
-const cityReducer = (city = '', action) => {
-    if (action.type === 'SEARCH') {
+const city = (city = '', action) => {
+    if (action.type === 'SEARCH_SUCCEEDED') {
         return action.payload.city_name;
     }
 
     return city;
 };
 
-const stateReducer = (state = '', action) => {
-    if (action.type === 'SEARCH') {
+const state = (state = '', action) => {
+    if (action.type === 'SEARCH_SUCCEEDED') {
         return action.payload.state_code;
     }
 
     return state;
 };
 
-const selectedForecastReducer = (selectedForecast = null, action) => {
+const selectedForecast = (selectedForecast = null, action) => {
     if (action.type === 'SHOW_DETAILS') {
-        return action.payload;
+        return action.payload.selectedForecast;
     }
 
     return selectedForecast;
 };
 
 export default combineReducers({
-    forecasts: forecastsReducer,
-    city: cityReducer,
-    state: stateReducer,
-    selectedForecast: selectedForecastReducer
+    forecasts,
+    city,
+    state,
+    selectedForecast
 });

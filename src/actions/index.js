@@ -1,8 +1,6 @@
 import { getWeather } from '../api/getWeather';
 
 export const search = zip => async dispatch => {
-    if (!zip) return;
-
     const data = await getWeather(zip);
 
     dispatch({ type: 'SHOW_DETAILS', payload: null });
